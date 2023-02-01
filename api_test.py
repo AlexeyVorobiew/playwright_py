@@ -1,6 +1,8 @@
 import os
 from playwright.sync_api import sync_playwright
-from playwright.sync_api import APIRequest, expec
+from playwright.sync_api import APIRequest
+from playwright.sync_api import Playwright, APIRequestContext
+import playwright.http
 '''
 
 with sync_playwright() as p:
@@ -11,5 +13,8 @@ with sync_playwright() as p:
     page = context.new_page()
 '''
 
-def simple_api_test(api:APIRequest):
-    APIRequest.new_context(base_url="https://playwright.dev/")
+def test_simple_api_test():
+    with playwright.http.get("https://api.example.com/data") as response:
+        assert response.status_code == 200
+        print(response.json())
+
