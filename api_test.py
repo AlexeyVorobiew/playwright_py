@@ -2,7 +2,7 @@ import os
 from playwright.sync_api import sync_playwright
 from playwright.sync_api import APIRequest
 from playwright.sync_api import Playwright, APIRequestContext
-import playwright.http
+#import playwright.http
 '''
 
 with sync_playwright() as p:
