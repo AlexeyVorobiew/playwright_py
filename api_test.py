@@ -1,3 +1,4 @@
+import requests
 import os
 from playwright.sync_api import sync_playwright
 from playwright.sync_api import APIRequest
@@ -18,3 +19,5 @@ def test_simple_api_test():
         assert response.status_code == 200
         print(response.json())
 
+def simple_right_api_test():
+    assert requests.get(url="https://api.example.com/data").status_code == 200
